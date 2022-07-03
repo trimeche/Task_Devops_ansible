@@ -1,0 +1,76 @@
+  - name: Playbook
+    hosts: webservers # You need to verify from where he get this host , must add host file I'll added it for you
+    become: yes
+    become_user: root
+    vars:
+       newproject: Myproject
+       project_path : /opt/python-venv #<--define your porject source of your requirment.txt
+      
+    # tasks:
+    #   - name: deploy new venv
+    #     yum: # check this also not working with all systems
+    #       name: ubunto # check this seems not correct 
+    #       state: latest
+
+      - name: check if virtualenv library installed
+        stat:
+        path: /
+        register: pip_virtualenv_installed
+    
+
+      - name: Download Pip-Installer
+        get_url:
+          url: https://bootstrap.pypa.io/pip/2.7/get-pip.py
+          dest: /tmp/get-pip.py
+        when: pip_virtualenv_installed.stat.exists == False
+
+
+      - name: Install pip
+        shell: /usr/bin/python /tmp/get-pip.py
+        when: pip_virtualenv_installed.stat.exists == False
+
+      - name: Create Python3-virtual environment folder
+        file:
+          name: '{{newproject}}'
+          state: directory
+          path: '{{venvlocation}}'
+
+      - name: Install a new virtualenv module
+        pip:
+          name: '{{newproject}}'
+        when: pip_virtualenv_installed.stat.exists == False
+
+      - name: Install Python 3.7
+        yum:
+          name:
+            - python36
+            - python36-devel
+            - python36-libs
+            - python3-setuptools
+            - gcc
+            - gcc-c++
+          state: present
+
+      - name: Initiate virtualenv
+        pip:
+          virtualenv: '{{newproject}}'
+          virtualenv_python: python3.7
+
+      - name : acticate a venv
+        command : source "{{newproject}}"/venv/bin/activate
+        
+      - name: Install project requirements in venv
+        pip:
+          requirements: '{{project_path}}/requirements.txt'
+          virtualenv: '{{virtualenv_path}}'
+          virtualenv_python: python3   
+      - name: testing our venv
+        shell: ./testvenv.py 
+
+        
+
+
+
+
+    
+ 
