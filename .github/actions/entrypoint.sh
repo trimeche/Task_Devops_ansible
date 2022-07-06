@@ -1,5 +1,6 @@
 #!/bin/sh
 mkdir ~/.ssh
+print("creation directory ssh")
 echo $VAULT_PASS > /vault_password_file.txt
 ansible-vault decrypt \
 --vault-password-file=/vault_password_file.txt \
