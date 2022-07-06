@@ -16,7 +16,7 @@ jobs:
 
 
     runs-on: [self-hosted, linux]
-    needs: build # The build job should finished successfully.
+    #needs: build # The build job should finished successfully.
     steps:
       - uses: actions/checkout@v1
       - uses: ./.github/actions
