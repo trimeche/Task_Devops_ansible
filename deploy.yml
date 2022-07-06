@@ -1,12 +1,13 @@
 name: Ansible deploy
 
 on: [push]
-  workflow_dispatch:
+  
 jobs:
   build:
 
 
     runs-on: [self-hosted, linux]
+
 
     steps:
     - uses: actions/checkout@v1
