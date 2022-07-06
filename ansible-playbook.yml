@@ -1,17 +1,11 @@
   - name: Playbook
-    hosts: webservers # You need to verify from where he get this host , must add host file I'll added it for you
+    hosts: webservers   
     become: yes
     become_user: root
     vars:
        newproject: Myproject
-       project_path : /opt/python-venv #<--define your porject source of your requirment.txt
-      
-    # tasks:
-    #   - name: deploy new venv
-    #     yum: # check this also not working with all systems
-    #       name: ubunto # check this seems not correct 
-    #       state: latest
-
+       project_path : /opt/python-venv 
+       
       - name: check if virtualenv library installed
         stat:
         path: /
