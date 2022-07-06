@@ -8,3 +8,6 @@ id_rsa-encrypted \
 
 chmod 0600 ~/.ssh/id_rsa
 
+ansible-playbook --vault-password-file=/vault_password_file.txt \
+-i 127.0.0.1  \
+ansible-playbook
