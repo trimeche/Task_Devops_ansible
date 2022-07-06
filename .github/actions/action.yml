@@ -1,0 +1,5 @@
+name: 'Deploy'
+descript: 'Makes deployment to the production'
+runs:
+ using: 'docker'
+ image: 'Dockerfile'
