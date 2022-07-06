@@ -6,6 +6,7 @@
        newproject: Myproject
        project_path : /opt/python-venv 
        
+       
       - name: check if virtualenv library installed
         stat:
         path: /
