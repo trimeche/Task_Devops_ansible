@@ -7,10 +7,10 @@
        project_path : /opt/python-venv 
        
     tasks:
-      - name: check if virtualenv library installed
-        stat:
-        path: /
-        register: pip_virtualenv_installed
+      #- name: check if virtualenv library installed
+      #  stat:
+      #  path: /
+      #  register: pip_virtualenv_installed
     
 
       - name: Download Pip-Installer
