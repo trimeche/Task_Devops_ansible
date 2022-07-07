@@ -35,7 +35,7 @@ jobs:
         VAULT_PASS: ${{ secrets.VAULT_PASS }}
         SSH_KEY: ${{ secrets.SSH_KEY }}
       run: |
-        echo "$ANSIBLE_VAULT_PASS" > .ansible-VAULT_PASS
+        echo "$VAULT_PASS" > .ansible-VAULT_PASS
         mkdir .ssh
         echo "$SSH_KEY" > .ssh/id_RSA
         chmod 600 .ssh/id_RSA
