@@ -1,4 +1,5 @@
-FROM alpine
-RUN apk add --update ansible
-COPY ./entrypoint.sh  /.
-ENTRYPOINT ["/entrypoint.sh"]
+FROM  9221/ansible-in-containers
+
+COPY ./entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["bash","/entrypoint.sh"]
