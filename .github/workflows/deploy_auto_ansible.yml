@@ -18,14 +18,31 @@ jobs:
     runs-on: [self-hosted, linux]
     #needs: build # The build job should finished successfully.
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./.github/actions
-        env:
-          VAULT_PASS: ${{ secrets.VAULT_PASS }}
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.8,
+      uses: actions/setup-python@v3
+    
+      with:
+        python-version: '3.8'
 
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install ansible==2.9.2 requests
    
+    - name: set ansible config secrets   
+      env:
+        ANSIBLE_VAULT_PASSWORD: ${{ secrets.VAULT_PASS }}
+        SSH_KEY: ${{ secrets.SSH_KEY }}
+      run: |
+        echo "$ANSIBLE_VAULT_PASS" > .ansible-VAULT_PASS
+        mkdir .ssh,
+        echo "$SSH_KEY" > .ssh/id_RSA
+        chmod 600 .ssh/id_RSA
+        - name: run playbook
+      run: |
+        ansible-playbook -i ansible-playbook.yml
 
-   
 
 
 
