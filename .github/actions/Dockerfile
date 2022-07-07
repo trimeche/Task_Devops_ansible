@@ -1,4 +1,4 @@
-FROM  9221/ansible-in-containers
+FROM  9221/buluma/ansible-in-containers
 
 COPY ./entrypoint.sh /entrypoint.sh
 
