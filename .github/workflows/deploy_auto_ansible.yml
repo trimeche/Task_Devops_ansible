@@ -36,7 +36,7 @@ jobs:
         SSH_KEY: ${{ secrets.SSH_KEY }}
       run: |
         echo "$ANSIBLE_VAULT_PASS" > .ansible-VAULT_PASS
-        mkdir .ssh,
+        mkdir .ssh
         echo "$SSH_KEY" > .ssh/id_RSA
         chmod 600 .ssh/id_RSA
         - name: run playbook
