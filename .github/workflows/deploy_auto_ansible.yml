@@ -32,7 +32,7 @@ jobs:
    
     - name: set ansible config secrets   
       env:
-        ANSIBLE_VAULT_PASSWORD: ${{ secrets.VAULT_PASS }}
+        VAULT_PASS: ${{ secrets.VAULT_PASS }}
         SSH_KEY: ${{ secrets.SSH_KEY }}
       run: |
         echo "$ANSIBLE_VAULT_PASS" > .ansible-VAULT_PASS
@@ -40,7 +40,7 @@ jobs:
         echo "$SSH_KEY" > .ssh/id_RSA
         chmod 600 .ssh/id_RSA
         - name: run playbook
-        
+
     - name: run playbook
       run: |
         ansible-playbook -i ansible-playbook.yml
