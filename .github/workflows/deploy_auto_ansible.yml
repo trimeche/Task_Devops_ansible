@@ -44,10 +44,10 @@ jobs:
     - name: checkout repo
       uses: actions/checkout@v2
     - name: Lint Ansible Playbook
-      uses: ansible/ansible-lint-action@master
+      #uses: ansible/ansible-lint-action@master
       with:
         targets: ""
-        
+
     - uses: actions/checkout@v1
     - uses: ./.github/actions/ansible
       with: 
