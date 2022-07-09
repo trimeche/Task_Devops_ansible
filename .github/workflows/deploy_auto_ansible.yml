@@ -40,6 +40,7 @@ jobs:
         mkdir .ssh
         echo "$SSH_KEY" > .ssh/id_RSA
         chmod 600 .ssh/id_RSA
+
     steps:
     - name: checkout repo
       uses: actions/checkout@v2
