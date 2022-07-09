@@ -42,8 +42,7 @@ jobs:
         chmod 600 .ssh/id_RSA
 
       steps:
-    - name: checkout repo
-      uses: actions/checkout@v2
+    -  uses: actions/checkout@v2
     - name: Lint Ansible Playbook
       #uses: ansible/ansible-lint-action@master
       with:
