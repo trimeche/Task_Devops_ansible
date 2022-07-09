@@ -42,9 +42,9 @@ jobs:
         chmod 600 .ssh/id_RSA
         
 
-    - name: run playbook
-      run: |
-        ansible-playbook  --connection=local --inventory 127.0.0.1, ansible-playbook.yml
+#    - name: run playbook
+#      run: |
+#        ansible-playbook  --connection=local --inventory 127.0.0.1, ansible-playbook.yml
 
 
 
