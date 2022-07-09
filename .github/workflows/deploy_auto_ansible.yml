@@ -40,14 +40,14 @@ jobs:
         mkdir .ssh
         echo "$SSH_KEY" > .ssh/id_RSA
         chmod 600 .ssh/id_RSA
-        
+
     - name: checkout repo
       uses: actions/checkout@v2
     - name: Lint Ansible Playbook
       uses: ansible/ansible-lint-action@master
       with:
         targets: ""
-    steps:
+        
     - uses: actions/checkout@v1
     - uses: ./.github/actions/ansible
       with: 
