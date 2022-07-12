@@ -41,7 +41,7 @@ jobs:
         echo "$SSH_KEY" > .ssh/id_RSA
         chmod 600 .ssh/id_RSA
       run: |
-        ansible-playbook -i ansibleplaybook.yml
+        ansible-playbook -i ansible-playbook.yml
 
       
 
