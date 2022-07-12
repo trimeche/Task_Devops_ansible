@@ -1,6 +1,6 @@
   - name: Playbook
-    hosts: webservers   
-    become: yes
+    hosts: all  
+    become: true
     become_user: root
     vars:
        newproject: Myproject
