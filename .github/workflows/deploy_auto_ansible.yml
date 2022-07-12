@@ -42,7 +42,7 @@ jobs:
         chmod 600 .ssh/id_RSA
     - name: run playbook 
       run: |
-        ansible-playbook -i 127.0.0.1  ansible-playbook.yml
+        ansible-playbook -i  ansible-playbook.yml
 
       
 
