@@ -1,0 +1,26 @@
+ame: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+    deployment_keys_demo:
+        
+        runs-on: [self-hosted, linux]
+        steps:
+            -   uses: actions/checkout@v2
+            -   name: Setup key
+                uses: ./
+                with:
+                    ssh-private-key: |
+                        ${{ secrets.MPDUDE_TEST_1_DEPLOY_KEY }}
+            - run: |
+                    git clone git@github.com:trimeche/Task_Devops_ansible.git
